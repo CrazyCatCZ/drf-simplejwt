@@ -1,4 +1,5 @@
 from pathlib import Path
+from .rest_framework import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
