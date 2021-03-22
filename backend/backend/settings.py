@@ -21,6 +21,7 @@ INSTALLED_APPS = [
 
     # Django apps
     'api',
+    'notes',
 
     # Pip packages
     'rest_framework',
