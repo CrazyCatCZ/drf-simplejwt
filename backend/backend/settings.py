@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     # Django apps
     'api',
     'notes',
+    'corsheaders',
+
 
     # Pip packages
     'rest_framework',
@@ -41,6 +43,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware', # Corsheaders
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -112,3 +116,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    "http://127.0.0.1:9000",
+]
