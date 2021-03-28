@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { axiosInstance } from "./axios";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [statusCode, setStatusCode] = useState(0);
 
   const loginUser = () => {
     axiosInstance
@@ -17,8 +15,8 @@ const Login = () => {
         const res = err.response;
 
         if (res.status === 400) {
-          setStatusCode(res.status);
           const { username, password } = res.data;
+
           if (username !== undefined) {
             console.log("Username not filled!");
           }
@@ -27,6 +25,7 @@ const Login = () => {
           }
         } else if (res.status === 401) {
           console.log("Wrong credentials");
+          console.log(res);
         }
       })
       .then((res) => {
@@ -54,6 +53,7 @@ const Login = () => {
         placeholder="Username"
       />
       <input
+        type="password"
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
       />
